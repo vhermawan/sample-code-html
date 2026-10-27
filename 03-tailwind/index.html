@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Step 3 - Tailwind CSS</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="font-sans text-gray-800 leading-relaxed">
+
+  <!-- CSS biasa: display:flex; justify-content:space-between; padding:16px 32px; ... -->
+  <header class="flex justify-between items-center px-8 py-4 border-b border-gray-200">
+    <h2 class="text-xl font-bold">KelasKoding</h2>
+    <nav class="space-x-6">
+      <a href="#fitur" class="text-gray-700 hover:text-sky-500">Fitur</a>
+      <a href="#testimoni" class="text-gray-700 hover:text-sky-500">Testimoni</a>
+      <a href="#daftar" class="text-gray-700 hover:text-sky-500">Daftar</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="hero" class="px-8 py-20 text-center bg-sky-50">
+      <h1 class="text-4xl font-bold mb-3">Belajar Coding Itu Seru</h1>
+      <p>Mulai dari nol, bikin website pertamamu dalam 30 hari.</p>
+      <button class="mt-5 px-6 py-3 rounded-lg bg-sky-500 hover:bg-sky-600 text-white">
+        Daftar Sekarang
+      </button>
+    </section>
+
+    <!-- CSS biasa: display:grid; grid-template-columns:repeat(3,1fr); gap:24px; -->
+    <section id="fitur" class="grid grid-cols-3 gap-6 px-8 py-16">
+      <h2 class="col-span-3 text-center text-2xl font-bold">Kenapa KelasKoding?</h2>
+      <article class="p-6 rounded-xl shadow">
+        <h3 class="font-bold">Materi Bertahap</h3>
+        <p>Dari HTML sampai JavaScript, step by step.</p>
+      </article>
+      <article class="p-6 rounded-xl shadow">
+        <h3 class="font-bold">Langsung Praktik</h3>
+        <p>Setiap materi ada project kecil.</p>
+      </article>
+      <article class="p-6 rounded-xl shadow">
+        <h3 class="font-bold">Ada Mentor</h3>
+        <p>Bisa tanya kapan saja saat bingung.</p>
+      </article>
+    </section>
+
+    <section id="testimoni" class="px-8 py-16 text-center bg-gray-50">
+      <h2 class="text-2xl font-bold">Kata Mereka</h2>
+      <blockquote class="mt-4 text-xl italic">
+        "Awalnya nggak ngerti apa-apa, sekarang bisa bikin website sendiri."
+        <cite class="block mt-2 text-sm text-gray-500">Rina, Mahasiswa</cite>
+      </blockquote>
+    </section>
+
+    <section id="daftar" class="px-8 py-16 text-center">
+      <h2 class="text-2xl font-bold">Siap Mulai?</h2>
+      <form class="mt-4">
+        <label for="email">Email</label>
+        <input id="email" type="email" placeholder="nama@email.com"
+               class="p-3 w-64 border border-gray-300 rounded-lg">
+        <button type="submit" class="px-6 py-3 rounded-lg bg-sky-500 hover:bg-sky-600 text-white">
+          Daftar
+        </button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="p-6 text-center bg-gray-800 text-white">
+    <p>&copy; 2026 KelasKoding</p>
+  </footer>
+</body>
+</html>

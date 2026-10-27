@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Perbandingan CSS Biasa vs Tailwind</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    .tombol-css {
+      padding: 12px 24px;
+      border-radius: 8px;
+      background: #0ea5e9;
+      color: white;
+      font-weight: bold;
+    }
+    .tombol-css:hover {
+      background: #0284c7;
+    }
+  </style>
+</head>
+<body class="p-10 font-sans bg-gray-50">
+  <h1 class="text-2xl font-bold mb-8">Tombol yang sama, dua cara</h1>
+
+  <div class="grid md:grid-cols-2 gap-6">
+    <div class="p-6 bg-white rounded-xl shadow">
+      <h2 class="font-bold mb-2">1. CSS Biasa</h2>
+      <p class="text-sm text-gray-500 mb-4">Style ditulis terpisah di &lt;style&gt; / file .css</p>
+      <button class="tombol-css">Daftar Sekarang</button>
+      <pre class="mt-4 p-4 bg-gray-900 text-green-300 text-xs rounded-lg overflow-x-auto">&lt;button class="tombol-css"&gt;
+      .tombol-css {
+        padding: 12px 24px;
+        border-radius: 8px;
+        background: #0ea5e9;
+        color: white;
+        font-weight: bold;
+      }
+      .tombol-css:hover {
+        background: #0284c7;
+      }</pre>
+    </div>
+
+    <div class="p-6 bg-white rounded-xl shadow">
+      <h2 class="font-bold mb-2">2. Tailwind CSS</h2>
+      <p class="text-sm text-gray-500 mb-4">Style langsung di class, tanpa file .css</p>
+      <!-- Cara 2: Tailwind. Tiap class = satu aturan CSS. -->
+      <button class="px-6 py-3 rounded-lg bg-sky-500 hover:bg-sky-600 text-white font-bold">
+        Daftar Sekarang
+      </button>
+      <pre class="mt-4 p-4 bg-gray-900 text-green-300 text-xs rounded-lg overflow-x-auto">&lt;button class="px-6 py-3 rounded-lg
+  bg-sky-500 hover:bg-sky-600
+  text-white font-bold"&gt;</pre>
+    </div>
+  </div>
+
+  <table class="mt-8 w-full bg-white rounded-xl shadow text-sm">
+    <thead>
+      <tr class="border-b"><th class="p-3 text-left">CSS Biasa</th><th class="p-3 text-left">Tailwind</th></tr>
+    </thead>
+    <tbody class="font-mono">
+      <tr class="border-b"><td class="p-3">padding: 12px 24px;</td><td class="p-3">px-6 py-3</td></tr>
+      <tr class="border-b"><td class="p-3">border-radius: 8px;</td><td class="p-3">rounded-lg</td></tr>
+      <tr class="border-b"><td class="p-3">background: #0ea5e9;</td><td class="p-3">bg-sky-500</td></tr>
+      <tr class="border-b"><td class="p-3">color: white;</td><td class="p-3">text-white</td></tr>
+      <tr class="border-b"><td class="p-3">font-weight: bold;</td><td class="p-3">font-bold</td></tr>
+      <tr><td class="p-3">:hover { background: #0284c7; }</td><td class="p-3">hover:bg-sky-600</td></tr>
+    </tbody>
+  </table>
+</body>
+</html>

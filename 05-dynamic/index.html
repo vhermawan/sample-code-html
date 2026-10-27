@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Step 5 - Dynamic Interfaces</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Animasi custom dengan @keyframes (CSS biasa tetap bisa dipakai bareng Tailwind) -->
+  <style>
+    @keyframes muncul {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .animasi-muncul {
+      animation: muncul 0.8s ease-out;
+    }
+  </style>
+</head>
+<body class="font-sans text-gray-800 leading-relaxed">
+
+  <section class="px-8 py-20 text-center bg-sky-50">
+    <!-- animate-bounce: animasi bawaan Tailwind -->
+    <span class="inline-block mb-4 px-3 py-1 text-sm rounded-full bg-sky-100 text-sky-700 animate-bounce">
+      Pendaftaran dibuka!
+    </span>
+    <!-- animasi-muncul: animasi buatan sendiri dari @keyframes di atas -->
+    <h1 class="text-4xl font-bold mb-3 animasi-muncul">Belajar Coding Itu Seru</h1>
+    <p class="animasi-muncul">Coba arahkan kursor ke kartu dan tombol di bawah.</p>
+
+    <!-- transition + hover: warna dan ukuran berubah halus -->
+    <button class="mt-6 px-6 py-3 rounded-lg bg-sky-500 text-white
+                   transition duration-300
+                   hover:bg-sky-600 hover:scale-110 hover:shadow-lg">
+      Daftar Sekarang
+    </button>
+  </section>
+
+  <!-- Responsive: 1 kolom di HP, 3 kolom mulai layar md (768px) -->
+  <section class="grid grid-cols-1 md:grid-cols-3 gap-6 px-8 py-16">
+    <!-- Reusable style: semua kartu pakai kumpulan class yang sama -->
+    <article class="p-6 rounded-xl bg-white shadow transition duration-300 hover:-translate-y-1 hover:shadow-xl">
+      <div class="text-3xl mb-2">&#128218;</div>
+      <h3 class="font-bold">Materi Bertahap</h3>
+      <p>Dari HTML sampai JavaScript, step by step.</p>
+    </article>
+    <article class="p-6 rounded-xl bg-white shadow transition duration-300 hover:-translate-y-1 hover:shadow-xl">
+      <div class="text-3xl mb-2">&#128187;</div>
+      <h3 class="font-bold">Langsung Praktik</h3>
+      <p>Setiap materi ada project kecil.</p>
+    </article>
+    <article class="p-6 rounded-xl bg-white shadow transition duration-300 hover:-translate-y-1 hover:shadow-xl">
+      <div class="text-3xl mb-2">&#129489;&#8205;&#127979;</div>
+      <h3 class="font-bold">Ada Mentor</h3>
+      <p>Bisa tanya kapan saja saat bingung.</p>
+    </article>
+  </section>
+
+  <!-- FAQ: klik pertanyaan untuk membuka jawabannya -->
+  <section class="max-w-2xl mx-auto px-8 pb-16">
+    <h2 class="text-2xl font-bold text-center mb-6">Pertanyaan Umum</h2>
+
+    <div class="faq border-b py-4">
+      <button class="faq-tanya w-full flex justify-between font-semibold text-left">
+        Apakah harus punya laptop bagus?
+        <span class="faq-ikon transition duration-300">+</span>
+      </button>
+      <p class="faq-jawab hidden mt-2 text-gray-600">Tidak. Cukup laptop yang bisa membuka browser dan teks editor.</p>
+    </div>
+
+    <div class="faq border-b py-4">
+      <button class="faq-tanya w-full flex justify-between font-semibold text-left">
+        Apakah cocok untuk pemula?
+        <span class="faq-ikon transition duration-300">+</span>
+      </button>
+      <p class="faq-jawab hidden mt-2 text-gray-600">Sangat cocok. Materi dimulai dari dasar sekali.</p>
+    </div>
+  </section>
+
+  <script>
+    // Ambil SEMUA tombol pertanyaan, lalu pasang event ke masing-masing
+    const semuaTanya = document.querySelectorAll('.faq-tanya');
+
+    semuaTanya.forEach(function (tanya) {
+      tanya.addEventListener('click', function () {
+        const jawab = tanya.nextElementSibling;          // <p> jawaban di bawahnya
+        const ikon = tanya.querySelector('.faq-ikon');
+
+        jawab.classList.toggle('hidden');                // tampil / sembunyi
+        ikon.classList.toggle('rotate-45');              // ikon + berputar jadi x
+      });
+    });
+  </script>
+</body>
+</html>

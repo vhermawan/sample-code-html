@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Step 4 - JavaScript</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="font-sans text-gray-800 leading-relaxed">
+  <header class="flex justify-between items-center px-8 py-4 border-b border-gray-200">
+    <h2 class="text-xl font-bold">KelasKoding</h2>
+
+    <!-- Tombol ini hanya muncul di layar kecil (md:hidden) -->
+    <button id="tombol-menu" class="md:hidden text-2xl" aria-label="Buka menu">&#9776;</button>
+
+    <!-- Di HP menu disembunyikan (hidden), di layar besar tampil (md:flex) -->
+    <nav id="menu" class="hidden md:flex md:space-x-6">
+      <a href="#fitur" class="text-gray-700 hover:text-sky-500">Fitur</a>
+      <a href="#testimoni" class="text-gray-700 hover:text-sky-500">Testimoni</a>
+      <a href="#daftar" class="text-gray-700 hover:text-sky-500">Daftar</a>
+    </nav>
+  </header>
+
+  <!-- Menu versi HP: muncul di bawah navbar saat tombol diklik -->
+  <nav id="menu-hp" class="hidden flex-col px-8 py-4 space-y-2 bg-gray-50 md:hidden">
+    <a href="#fitur">Fitur</a>
+    <a href="#testimoni">Testimoni</a>
+    <a href="#daftar">Daftar</a>
+  </nav>
+
+  <main>
+    <section class="px-8 py-20 text-center bg-sky-50">
+      <h1 class="text-4xl font-bold mb-3">Belajar Coding Itu Seru</h1>
+      <p>Mulai dari nol, bikin website pertamamu dalam 30 hari.</p>
+
+      <button id="tombol-suka" class="mt-5 px-6 py-3 rounded-lg bg-white border border-sky-500 text-sky-600">
+        &#10084; Suka (<span id="jumlah-suka">0</span>)
+      </button>
+    </section>
+
+    <section id="fitur" class="grid md:grid-cols-3 gap-6 px-8 py-16">
+      <h2 class="md:col-span-3 text-center text-2xl font-bold">Kenapa KelasKoding?</h2>
+      <article class="p-6 rounded-xl shadow">
+        <h3 class="font-bold">Materi Bertahap</h3>
+        <p>Dari HTML sampai JavaScript, step by step.</p>
+      </article>
+      <article class="p-6 rounded-xl shadow">
+        <h3 class="font-bold">Langsung Praktik</h3>
+        <p>Setiap materi ada project kecil.</p>
+      </article>
+      <article class="p-6 rounded-xl shadow">
+        <h3 class="font-bold">Ada Mentor</h3>
+        <p>Bisa tanya kapan saja saat bingung.</p>
+      </article>
+    </section>
+
+    <section id="daftar" class="px-8 py-16 text-center bg-gray-50">
+      <h2 class="text-2xl font-bold">Siap Mulai?</h2>
+      <form id="form-daftar" class="mt-4">
+        <input id="email" type="text" placeholder="nama@email.com"
+               class="p-3 w-64 border border-gray-300 rounded-lg">
+        <button type="submit" class="px-6 py-3 rounded-lg bg-sky-500 hover:bg-sky-600 text-white">
+          Daftar
+        </button>
+      </form>
+      <!-- Pesan ini diisi oleh JavaScript -->
+      <p id="pesan" class="mt-3 text-sm"></p>
+    </section>
+  </main>
+
+  <footer class="p-6 text-center bg-gray-800 text-white">
+    <p>&copy; 2026 KelasKoding</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
